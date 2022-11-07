@@ -24,10 +24,6 @@ class SectionFilmsWidget extends StatelessWidget {
           child: Column(
             children: const [
               MoviesListWidget(),
-              SizedBox(
-                height: 20,
-              ),
-              MoviesListWidget(),
             ],
           ),
         ),
