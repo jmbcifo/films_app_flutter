@@ -1,5 +1,6 @@
 import 'package:films_app_flutter/UI/utils/urls_db.dart';
 import 'package:films_app_flutter/UI/widgets/movies/item_movie_widget.dart';
+import 'package:films_app_flutter/models/movie_model.dart';
 import 'package:films_app_flutter/structure/controllers/movies_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -55,9 +56,9 @@ class MoviesListWidget extends StatelessWidget {
                         return Padding(
                           padding: const EdgeInsets.only(right: 20.0),
                           child: ItemMovieWidget(
-                            title: controller.popularMovies.value
-                                    .results?[index].originalTitle ??
-                                '',
+                            movie: controller
+                                    .popularMovies.value.results?[index] ??
+                                Movie(),
                             src: urlImage(controller.popularMovies.value
                                 .results![index].posterPath!),
                           ),

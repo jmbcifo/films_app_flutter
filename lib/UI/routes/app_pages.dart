@@ -15,7 +15,7 @@ class AppPages {
       name: Routes.DETAILS,
       page: () => DetailsPage(
         src: null,
-        title: null,
+        movie: null,
       ),
     )
   ];
