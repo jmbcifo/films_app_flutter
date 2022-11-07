@@ -13,7 +13,10 @@ class AppPages {
     ),
     GetPage(
       name: Routes.DETAILS,
-      page: () => DetailsPage(),
+      page: () => DetailsPage(
+        src: null,
+        title: null,
+      ),
     )
   ];
 }
