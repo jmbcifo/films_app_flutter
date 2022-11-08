@@ -1,5 +1,5 @@
 import 'package:films_app_flutter/UI/themes/colors_theme.dart';
-import 'package:films_app_flutter/UI/widgets/movies/movies_list_widget.dart';
+import 'package:films_app_flutter/UI/widgets/movies/movies_list_popular_widget.dart';
 import 'package:flutter/material.dart';
 
 class SectionFilmsWidget extends StatelessWidget {
@@ -24,7 +24,10 @@ class SectionFilmsWidget extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: const [
-              MoviesListWidget(),
+              //Esta es la lista de las peliculas populares
+              MoviesListPopularWidget(
+                titleSection: "RECOMENDADO PARA TI",
+              ),
             ],
           ),
         ),
