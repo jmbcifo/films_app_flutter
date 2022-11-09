@@ -15,11 +15,11 @@ class LoginPage extends StatelessWidget {
         width: double.infinity,
         color: Colors.blue,
         child: Column(
-          children: const [
-            SizedBox(
+          children: [
+            const SizedBox(
               height: 30,
             ),
-            Text(
+            const Text(
               "¡BIENVENIDO!",
               style: TextStyle(
                 color: Colors.white,
@@ -27,13 +27,13 @@ class LoginPage extends StatelessWidget {
                 fontSize: 20,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             Expanded(
               child: CardLoginForm(),
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
           ],
