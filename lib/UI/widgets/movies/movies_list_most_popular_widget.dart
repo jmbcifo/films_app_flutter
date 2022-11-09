@@ -13,6 +13,7 @@ class MoviesListMostPopularWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<MoviesController>(builder: (controller) {
+      //Esta lista es la lista peliculas populares ordenadas de mayor a menor valoración
       controller.getMostPopularMovies();
       return Obx(() => MoviesListWidget(
             movies: controller.mostPopularMovies.value,
