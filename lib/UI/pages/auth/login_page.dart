@@ -13,7 +13,6 @@ class LoginPage extends StatelessWidget {
         margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 40),
         height: double.infinity,
         width: double.infinity,
-        color: Colors.blue,
         child: Column(
           children: [
             const SizedBox(

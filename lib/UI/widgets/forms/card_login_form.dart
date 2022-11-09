@@ -16,26 +16,54 @@ class CardLoginForm extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
         ),
         color: Colors.white,
-        child: SizedBox(
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 30),
           width: double.infinity,
+          height: double.infinity,
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               //POSIBLE ERROR
               //Es necesario utilizar los widget de Flutter como hijos del Form
               //Form => TextFormField , TextFormField ... etc => Validate
               //para hacer las validaciones => TextFormField
-              TextFormField(
-                obscureText: false,
-                //textEditingController: authController.nameController,
-                validator: formValidator.isValidName,
-                onSaved: (value) {
-                  authController.nameController.text = value!;
-                },
+              Flexible(
+                child: TextFormField(
+                  obscureText: false,
+                  controller: authController.nameController,
+                  validator: formValidator.isValidName,
+                  decoration: InputDecoration(hintText: "Escribe tu nombre"),
+                ),
               ),
-              TextFormField(
-                obscureText: true,
-                controller: authController.passwordController,
+              SizedBox(
+                height: 10,
               ),
+              Flexible(
+                child: TextFormField(
+                  obscureText: false,
+                  controller: authController.emailController,
+                  validator: formValidator.isValidEmail,
+                  decoration: InputDecoration(hintText: "Escribe tu email"),
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Flexible(
+                child: TextFormField(
+                  obscureText: true,
+                  controller: authController.passwordController,
+                  validator: formValidator.isValidPass,
+                  decoration:
+                      InputDecoration(hintText: "Escribe tu contraseña"),
+                ),
+              ),
+              Expanded(
+                child: SizedBox(
+                  height: 20,
+                ),
+              ),
+
               TextButton(
                 onPressed: () {
                   print(authController.nameController.value);
