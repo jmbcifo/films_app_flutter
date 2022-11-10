@@ -4,5 +4,5 @@ class AuthController {
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-  TextEditingController repeatiPasswordController = TextEditingController();
+  TextEditingController repeatPasswordController = TextEditingController();
 }
