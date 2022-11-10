@@ -1,6 +1,7 @@
 import 'package:films_app_flutter/UI/utils/validators_utils.dart';
 import 'package:films_app_flutter/structure/controllers/auth_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CardRegisterForm extends StatelessWidget {
   CardRegisterForm({Key? key}) : super(key: key);
@@ -8,7 +9,7 @@ class CardRegisterForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AuthController authController = AuthController();
+    AuthController authController = Get.find();
     FormValidator formValidator = FormValidator();
     return Form(
       key: _formKey,
