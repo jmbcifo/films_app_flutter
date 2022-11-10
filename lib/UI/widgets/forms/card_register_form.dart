@@ -1,3 +1,4 @@
+import 'package:films_app_flutter/UI/themes/colors_theme.dart';
 import 'package:films_app_flutter/UI/utils/validators_utils.dart';
 import 'package:films_app_flutter/structure/controllers/auth_controller.dart';
 import 'package:flutter/material.dart';
@@ -65,6 +66,7 @@ class CardRegisterForm extends StatelessWidget {
                       const InputDecoration(hintText: "Escribe tu contraseña"),
                 ),
               ),
+
               const SizedBox(
                 height: 10,
               ),
@@ -78,19 +80,40 @@ class CardRegisterForm extends StatelessWidget {
                   ),
                 ),
               ),
-              const Expanded(
-                child: SizedBox(
-                  height: 20,
+              const SizedBox(
+                height: 10,
+              ),
+              Obx(
+                () => Checkbox(
+                  checkColor: Colors.white,
+                  fillColor: MaterialStateProperty.resolveWith(
+                    AppColors().getColorCheckBox,
+                  ),
+                  value: authController.checkTerms.value,
+                  onChanged: (bool? value) {
+                    authController.checkTerms.value = value!;
+                  },
                 ),
+              ),
+              const SizedBox(
+                height: 10,
               ),
 
               TextButton(
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
-                    print("Este formulario es verdadero");
+                    showDialog(
+                        context: context,
+                        builder: (contex) {
+                          return AlertDialog(
+                            title: Text("Este formulario es correcto"),
+                          );
+                        });
                     if (authController.passwordController.text ==
                         authController.repeatPasswordController.text) {
                       print("Ambas contraseñas son iguales");
+                      if (authController.checkTerms.value == true) {
+                      } else {}
                     } else {
                       print("Las contraseñas no son iguales");
                     }
