@@ -1,4 +1,5 @@
 import 'package:films_app_flutter/UI/widgets/forms/card_register_form.dart';
+import 'package:films_app_flutter/services/auth_firebase_repository.dart';
 import 'package:flutter/material.dart';
 
 class RegisterPage extends StatelessWidget {
@@ -7,6 +8,11 @@ class RegisterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          AuthFirebaseRepository().signInAnonymous();
+        },
+      ),
       backgroundColor: Colors.orange,
       body: Container(
         margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 40),

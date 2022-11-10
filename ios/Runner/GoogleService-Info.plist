@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>288292479556-vovrl9nkmoq6oh4ukjj3ra7ajn4plcds.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.288292479556-vovrl9nkmoq6oh4ukjj3ra7ajn4plcds</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCNhR1lh3g1fiuYjc3mDKsOyfjnm3716Qk</string>
+	<key>GCM_SENDER_ID</key>
+	<string>288292479556</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.filmsAppFlutter</string>
+	<key>PROJECT_ID</key>
+	<string>films-cifo-app</string>
+	<key>STORAGE_BUCKET</key>
+	<string>films-cifo-app.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:288292479556:ios:1d8b7cd998038e8d575211</string>
+</dict>
+</plist>
