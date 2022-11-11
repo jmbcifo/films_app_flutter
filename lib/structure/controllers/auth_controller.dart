@@ -28,6 +28,14 @@ class AuthController extends GetxController {
     print(firebaseUser.value?.isAnonymous ?? '');
   }
 
+  registerWithEmailAndPassword() async {
+    firebaseUser.value =
+        await AuthFirebaseRepository().registerWithEmailAndPassword(
+      email: emailController.value.text,
+      password: passwordController.value.text,
+    );
+  }
+
   Future<void> signOut() async {
     return _auth.signOut();
   }
