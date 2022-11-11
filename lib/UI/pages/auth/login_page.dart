@@ -1,13 +1,20 @@
 import 'package:films_app_flutter/UI/widgets/forms/card_login_form.dart';
 import 'package:films_app_flutter/structure/controllers/auth_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    AuthController authController = Get.find();
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          authController.signInAnonymous();
+        },
+      ),
       backgroundColor: Colors.orange,
       body: Container(
         margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 40),

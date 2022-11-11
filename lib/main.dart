@@ -1,6 +1,7 @@
 import 'package:films_app_flutter/UI/routes/app_pages.dart';
 import 'package:films_app_flutter/UI/routes/app_routes.dart';
 import 'package:films_app_flutter/firebase_options.dart';
+import 'package:films_app_flutter/structure/controllers/auth_controller.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -31,7 +32,10 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       getPages: AppPages.routes,
-      initialRoute: Routes.REGISTER,
+      initialRoute: Routes.LOADING,
+      initialBinding: BindingsBuilder(() {
+        Get.put<AuthController>(AuthController());
+      }),
     );
   }
 }

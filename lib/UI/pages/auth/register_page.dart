@@ -8,11 +8,6 @@ class RegisterPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          AuthFirebaseRepository().signInAnonymous();
-        },
-      ),
       backgroundColor: Colors.orange,
       body: Container(
         margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 40),
