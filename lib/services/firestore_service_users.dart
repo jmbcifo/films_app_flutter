@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:films_app_flutter/models/user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class FirestoreDatabaseUsers {
@@ -19,6 +20,22 @@ class FirestoreDatabaseUsers {
     } catch (e) {
       print(e);
       return false;
+    }
+  }
+
+  Future<UserModel> getUser({required String uidUser}) async {
+    try {
+      DocumentSnapshot doc =
+          await _firestore.collection(_collection).doc(uidUser).get();
+      print(doc.data());
+
+      return UserModel.fromJson(doc.data() as Map<String, dynamic>);
+    } catch (e) {
+      print(e);
+      return UserModel(
+        uid: '',
+        email: '',
+      );
     }
   }
 }
