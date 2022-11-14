@@ -39,7 +39,34 @@ class AuthFirebaseRepository {
     } on FirebaseAuthException catch (e) {
       switch (e.code) {
         case "operation-not-allowed":
-          print("Anonymous auth hasn't been enabled for this project.");
+          print(e.message);
+          break;
+        default:
+          print("Unknown error.");
+      }
+
+      return null;
+    }
+  }
+
+  Future<User?> loginWithEmailAndPassword({
+    required String email,
+    required String password,
+  }) async {
+    try {
+      final userCredential =
+          await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+
+      User? user = userCredential.user;
+
+      return user;
+    } on FirebaseAuthException catch (e) {
+      switch (e.code) {
+        case "operation-not-allowed":
+          print(e.message);
           break;
         default:
           print("Unknown error.");

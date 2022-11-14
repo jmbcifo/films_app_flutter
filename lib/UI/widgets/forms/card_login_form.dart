@@ -28,18 +28,7 @@ class CardLoginForm extends StatelessWidget {
               //Es necesario utilizar los widget de Flutter como hijos del Form
               //Form => TextFormField , TextFormField ... etc => Validate
               //para hacer las validaciones => TextFormField
-              Flexible(
-                child: TextFormField(
-                  obscureText: false,
-                  controller: authController.nameController,
-                  validator: formValidator.isValidName,
-                  decoration:
-                      const InputDecoration(hintText: "Escribe tu nombre"),
-                ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
+
               Flexible(
                 child: TextFormField(
                   obscureText: false,
@@ -71,6 +60,7 @@ class CardLoginForm extends StatelessWidget {
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
                     print("Este formulario es verdadero");
+                    authController.loginWithEmailAndPassword();
                   } else {
                     print("vuelve a intentarlo");
                   }

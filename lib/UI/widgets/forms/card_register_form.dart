@@ -113,6 +113,7 @@ class CardRegisterForm extends StatelessWidget {
                         authController.repeatPasswordController.text) {
                       print("Ambas contraseñas son iguales");
                       if (authController.checkTerms.value == true) {
+                        authController.registerWithEmailAndPassword();
                       } else {}
                     } else {
                       print("Las contraseñas no son iguales");
