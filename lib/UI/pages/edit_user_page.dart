@@ -21,36 +21,30 @@ class EditUserPage extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(40),
-              child: Obx(
-                () => GestureDetector(
-                  onTap: () {
-                    PickImageUtils().showPicker(
-                      context,
-                      onPressed: () async {
-                        XFile? result = await PickImageUtils().imgFromGallery();
-                        File file = File(result!.path);
-                        authController.changePhotoUser(file);
+              child: GestureDetector(
+                onTap: () {
+                  PickImageUtils().showPicker(
+                    context,
+                    onPressed: () async {
+                      XFile? result = await PickImageUtils().imgFromGallery();
+                      File file = File(result!.path);
+                      authController.changePhotoUser(file);
 
-                        Get.back();
-                      },
-                    );
-                  },
-                  child: Stack(
-                    children: [
-                      (authController.userDb.value?.urlImage != null &&
-                              authController.userDb.value!.urlImage != "")
-                          ? CircleAvatar(
-                              child: Image.network(
-                                  authController.userDb.value!.urlImage!),
-                              radius: 40,
-                            )
-                          : CircleAvatar(
-                              child: Image.network(
-                                  "https://picsum.photos/250?image=9"),
-                              radius: 40,
-                            )
-                    ],
-                  ),
+                      Get.back();
+                    },
+                  );
+                },
+                child: Stack(
+                  children: [
+                    Obx(
+                      () => CircleAvatar(
+                        child: Image.network(
+                            authController.userDb.value?.urlImage ??
+                                "https://picsum.photos/250?image=9"),
+                        radius: 40,
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),

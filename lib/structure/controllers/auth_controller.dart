@@ -65,10 +65,6 @@ class AuthController extends GetxController {
 
     userDb.value = await FirestoreDatabaseUsers()
         .getUser(uidUser: firebaseUser.value!.uid);
-
-    print(userDb.value!.uid);
-    print(userDb.value!.email);
-    print(userDb.value!.isAdmin);
   }
 
   Future<void> signOut() async {
@@ -90,5 +86,7 @@ class AuthController extends GetxController {
   changePhotoUser(File file) async {
     userDb.value!.urlImage =
         await FirebaseStorageService().uploadFileUser(file, userDb.value!);
+    print(userDb.value!);
+    print(userDb.value!.urlImage);
   }
 }

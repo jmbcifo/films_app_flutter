@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 class PickImageUtils {
-  void showPicker(BuildContext context, {required Function onPressed}) {
+  void showPicker(BuildContext context, {required VoidCallback? onPressed}) {
     showModalBottomSheet(
         context: context,
         builder: (BuildContext bc) {
@@ -11,7 +11,7 @@ class PickImageUtils {
               ListTile(
                 leading: const Icon(Icons.photo_library),
                 title: const Text("Acceder a la galeria"),
-                onTap: onPressed(),
+                onTap: onPressed!,
               ),
               ListTile(
                 leading: const Icon(Icons.photo_camera),

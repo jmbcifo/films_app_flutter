@@ -15,17 +15,9 @@ class FirebaseStorageService {
         .child('imagesProfile/${userModel.uid}');
 
     //Transformar el path local en url
-    firebase_storage.UploadTask uploadTask = storageReference.putFile(file);
+    await storageReference.putFile(file);
 
-    await uploadTask.whenComplete(() {
-      //Obtener el url de Firebase
-      storageReference.getDownloadURL().then((url) {
-        print(url);
-
-        return url;
-      });
-    });
-
-    return '';
+    //Obtener el url de Firebase
+    return storageReference.getDownloadURL();
   }
 }
