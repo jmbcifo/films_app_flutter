@@ -25,7 +25,8 @@ class FirestoreDatabaseUsers {
 
   Future<bool> editUser({required UserModel userModel}) async {
     try {
-      await _firestore.collection(_collection).doc(userModel.uid).set(
+      //Se puede hacer con un .set como el ejemplo anterior
+      await _firestore.collection(_collection).doc(userModel.uid).update(
             userModel.toJson(),
           );
       return true;
@@ -47,7 +48,18 @@ class FirestoreDatabaseUsers {
       return UserModel(
         uid: '',
         email: '',
+        urlImage: '',
       );
+    }
+  }
+
+  Future<bool> deleteUser({required UserModel userModel}) async {
+    try {
+      await _firestore.collection(_collection).doc(userModel.uid).delete();
+      return true;
+    } catch (e) {
+      print(e);
+      return false;
     }
   }
 }

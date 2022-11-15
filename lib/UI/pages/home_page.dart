@@ -1,3 +1,4 @@
+import 'package:films_app_flutter/UI/routes/app_routes.dart';
 import 'package:films_app_flutter/UI/utils/images/pick_image_utils.dart';
 import 'package:films_app_flutter/UI/widgets/home/section_films_widget.dart';
 import 'package:films_app_flutter/UI/widgets/home/section_search_film_widget.dart';
@@ -27,7 +28,11 @@ class HomePage extends StatelessWidget {
               heroTag: "2",
               child: Icon(Icons.edit),
               onPressed: () {
-                PickImageUtils().showPicker(context);
+                // llamar a la función de la cámara
+                // PickImageUtils().showPicker(context);
+
+                //Navegación hacia la pantalla de editar
+                Get.toNamed(Routes.EDITUSER);
               })
         ],
       ),

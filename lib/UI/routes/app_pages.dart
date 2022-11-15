@@ -1,6 +1,7 @@
 import 'package:films_app_flutter/UI/pages/auth/login_page.dart';
 import 'package:films_app_flutter/UI/pages/auth/register_page.dart';
 import 'package:films_app_flutter/UI/pages/details_page.dart';
+import 'package:films_app_flutter/UI/pages/edit_user_page.dart';
 import 'package:films_app_flutter/UI/pages/home_page.dart';
 import 'package:films_app_flutter/UI/pages/loading_page.dart';
 import 'package:films_app_flutter/UI/routes/app_routes.dart';
@@ -34,6 +35,10 @@ class AppPages {
     GetPage(
       name: Routes.LOADING,
       page: () => const LoadingPage(),
-    )
+    ),
+    GetPage(
+      name: Routes.EDITUSER,
+      page: () => const EditUserPage(),
+    ),
   ];
 }
