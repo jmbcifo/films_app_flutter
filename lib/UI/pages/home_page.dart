@@ -1,3 +1,4 @@
+import 'package:films_app_flutter/UI/utils/images/pick_image_utils.dart';
 import 'package:films_app_flutter/UI/widgets/home/section_films_widget.dart';
 import 'package:films_app_flutter/UI/widgets/home/section_search_film_widget.dart';
 import 'package:films_app_flutter/structure/controllers/auth_controller.dart';
@@ -11,9 +12,25 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     AuthController authController = Get.find();
     return Scaffold(
-      floatingActionButton: FloatingActionButton(onPressed: () {
-        authController.signOut();
-      }),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+              heroTag: "1",
+              onPressed: () {
+                authController.signOut();
+              }),
+          SizedBox(
+            width: 20,
+          ),
+          FloatingActionButton(
+              heroTag: "2",
+              child: Icon(Icons.edit),
+              onPressed: () {
+                PickImageUtils().showPicker(context);
+              })
+        ],
+      ),
       appBar: AppBar(),
       drawer: Drawer(
         // Add a ListView to the drawer. This ensures the user can scroll

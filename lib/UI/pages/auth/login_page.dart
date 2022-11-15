@@ -1,3 +1,4 @@
+import 'package:films_app_flutter/UI/routes/app_routes.dart';
 import 'package:films_app_flutter/UI/widgets/forms/card_login_form.dart';
 import 'package:films_app_flutter/structure/controllers/auth_controller.dart';
 import 'package:flutter/material.dart';
@@ -38,6 +39,24 @@ class LoginPage extends StatelessWidget {
             ),
             Expanded(
               child: CardLoginForm(),
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            GestureDetector(
+              child: Container(
+                color: Colors.blue,
+                height: 30,
+                child: const Text(
+                  "Registrarse",
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+              onTap: () {
+                Get.offAllNamed(Routes.REGISTER);
+              },
             ),
             const SizedBox(
               height: 30,

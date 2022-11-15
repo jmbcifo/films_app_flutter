@@ -1,6 +1,8 @@
+import 'package:films_app_flutter/UI/routes/app_routes.dart';
 import 'package:films_app_flutter/UI/widgets/forms/card_register_form.dart';
 import 'package:films_app_flutter/services/auth_firebase_repository.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class RegisterPage extends StatelessWidget {
   const RegisterPage({Key? key}) : super(key: key);
@@ -31,6 +33,24 @@ class RegisterPage extends StatelessWidget {
             ),
             Expanded(
               child: CardRegisterForm(),
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            GestureDetector(
+              child: Container(
+                color: Colors.blue,
+                height: 30,
+                child: const Text(
+                  "Login",
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+              onTap: () {
+                Get.offAllNamed(Routes.LOGIN);
+              },
             ),
             const SizedBox(
               height: 30,

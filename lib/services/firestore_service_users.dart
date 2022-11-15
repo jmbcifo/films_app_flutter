@@ -23,6 +23,18 @@ class FirestoreDatabaseUsers {
     }
   }
 
+  Future<bool> editUser({required UserModel userModel}) async {
+    try {
+      await _firestore.collection(_collection).doc(userModel.uid).set(
+            userModel.toJson(),
+          );
+      return true;
+    } catch (e) {
+      print(e);
+      return false;
+    }
+  }
+
   Future<UserModel> getUser({required String uidUser}) async {
     try {
       DocumentSnapshot doc =
