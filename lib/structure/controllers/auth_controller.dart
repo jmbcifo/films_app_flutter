@@ -33,7 +33,6 @@ class AuthController extends GetxController {
 
   signInAnonymous() async {
     firebaseUser.value = await AuthFirebaseRepository().signInAnonymous();
-    print(firebaseUser.value?.isAnonymous ?? '');
   }
 
   Future<bool> editUser(UserModel userModel) async {
@@ -84,9 +83,13 @@ class AuthController extends GetxController {
   }
 
   changePhotoUser(File file) async {
-    userDb.value!.urlImage =
-        await FirebaseStorageService().uploadFileUser(file, userDb.value!);
-    print(userDb.value!);
-    print(userDb.value!.urlImage);
+    String url =
+        await FirebaseStorageService().uploadFileUser(file, userDb.value!.uid);
+    userDb.value = UserModel(
+      uid: userDb.value!.uid,
+      email: userDb.value!.email,
+      urlImage: url,
+      isAdmin: userDb.value!.isAdmin,
+    );
   }
 }

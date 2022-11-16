@@ -28,7 +28,7 @@ class EditUserPage extends StatelessWidget {
                     onPressed: () async {
                       XFile? result = await PickImageUtils().imgFromGallery();
                       File file = File(result!.path);
-                      authController.changePhotoUser(file);
+                      await authController.changePhotoUser(file);
 
                       Get.back();
                     },
