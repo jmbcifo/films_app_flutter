@@ -4,6 +4,17 @@ New porject
 
 ## Getting Started
 
+## Especificaciones IOs 
+
+### Image Picker
+
+<key>NSCameraUsageDescription</key>
+<string>Need to upload image</string>
+<key>NSMicrophoneUsageDescription</key>
+<string>Need to upload image</string>
+<key>NSPhotoLibraryUsageDescription</key>
+<string>Need to upload image</string>
+
 This project is a starting point for a Flutter application.
 
 A few resources to get you started if this is your first Flutter project:
