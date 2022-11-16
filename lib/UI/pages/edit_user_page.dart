@@ -45,10 +45,10 @@ class EditUserPage extends StatelessWidget {
                   children: [
                     Obx(
                       () => CircleAvatar(
+                        radius: 40,
                         child: Image.network(
                             authController.userDb.value?.urlImage ??
                                 "https://picsum.photos/250?image=9"),
-                        radius: 40,
                       ),
                     ),
                   ],

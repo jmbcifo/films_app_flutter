@@ -1,7 +1,5 @@
 import 'dart:io';
-import 'dart:math';
 
-import 'package:films_app_flutter/UI/pages/auth/login_page.dart';
 import 'package:films_app_flutter/UI/routes/app_routes.dart';
 import 'package:films_app_flutter/models/user_model.dart';
 import 'package:films_app_flutter/services/auth_firebase_repository.dart';
@@ -85,6 +83,11 @@ class AuthController extends GetxController {
   changePhotoUser(File file) async {
     String url =
         await FirebaseStorageService().uploadFileUser(file, userDb.value!.uid);
+
+    //Esto NO notifica los cambios
+    //userDb.value!.urlImage = url;
+
+    //Esto SI notifica los cambios ya que es REACTIVO
     userDb.value = UserModel(
       uid: userDb.value!.uid,
       email: userDb.value!.email,
