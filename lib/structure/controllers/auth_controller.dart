@@ -95,4 +95,16 @@ class AuthController extends GetxController {
       isAdmin: userDb.value!.isAdmin,
     );
   }
+
+  Future<bool> changeUser() async {
+    /* UserModel newUser = UserModel(
+      uid: userDb.value!.uid,
+      email: userDb.value!.email,
+      urlImage: userDb.value!.urlImage,
+      isAdmin: userDb.value!.isAdmin,
+    );*/
+    bool response =
+        await FirestoreDatabaseUsers().editUser(userModel: userDb.value!);
+    return response;
+  }
 }

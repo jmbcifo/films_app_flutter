@@ -38,7 +38,7 @@ class AppPages {
     ),
     GetPage(
       name: Routes.EDITUSER,
-      page: () => const EditUserPage(),
+      page: () => EditUserPage(),
     ),
   ];
 }
