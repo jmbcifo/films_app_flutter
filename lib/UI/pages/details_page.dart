@@ -1,5 +1,6 @@
 import 'package:films_app_flutter/UI/themes/colors_theme.dart';
 import 'package:films_app_flutter/models/movie_model.dart';
+import 'package:films_app_flutter/structure/controllers/auth_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -14,6 +15,7 @@ class DetailsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AuthController authController = Get.find();
     return Scaffold(
       backgroundColor: AppColors.darkBackground,
       body: SingleChildScrollView(
@@ -55,11 +57,20 @@ class DetailsPage extends StatelessWidget {
                             },
                           ),
                           IconButton(
-                            icon: Icon(
-                              Icons.favorite_border,
-                              color: Colors.white,
-                            ),
-                            onPressed: () {},
+                            icon: Obx(() => (authController
+                                    .userDb.value!.uidsFavs!
+                                    .contains(movie!.id))
+                                ? Icon(
+                                    Icons.favorite,
+                                    color: Colors.yellow,
+                                  )
+                                : Icon(
+                                    Icons.favorite_border,
+                                    color: Colors.white,
+                                  )),
+                            onPressed: () {
+                              authController.addFavFilm(movie!);
+                            },
                           ),
                         ],
                       ),

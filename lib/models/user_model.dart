@@ -9,14 +9,15 @@ class UserModel {
   final String email;
   String? urlImage;
   final bool isAdmin;
+  List<int>? uidsFavs;
 
-  UserModel({
-    required this.uid,
-    this.urlImage,
-    this.name,
-    required this.email,
-    this.isAdmin = false,
-  });
+  UserModel(
+      {required this.uid,
+      this.urlImage,
+      this.name,
+      required this.email,
+      this.isAdmin = false,
+      this.uidsFavs});
 
   factory UserModel.fromJson(Map<String, dynamic> json) =>
       _$UserModelFromJson(json);

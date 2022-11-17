@@ -3,7 +3,6 @@ import 'package:films_app_flutter/UI/widgets/movies/item_movie_widget.dart';
 import 'package:films_app_flutter/models/movie_model.dart';
 import 'package:films_app_flutter/structure/controllers/movies_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class MoviesListWidget extends StatelessWidget {
   //Importar los parametros en el constructor que necesitamos pasar de forma global

@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:films_app_flutter/UI/routes/app_routes.dart';
+import 'package:films_app_flutter/models/movie_model.dart';
 import 'package:films_app_flutter/models/user_model.dart';
 import 'package:films_app_flutter/services/auth_firebase_repository.dart';
 import 'package:films_app_flutter/services/firebase_storage_service.dart';
@@ -105,6 +106,24 @@ class AuthController extends GetxController {
     );*/
     bool response =
         await FirestoreDatabaseUsers().editUser(userModel: userDb.value!);
+    return response;
+  }
+
+  Future<bool> addFavFilm(Movie movie) async {
+    if (userDb.value!.uidsFavs == null) {
+      userDb.value!.uidsFavs = [];
+    }
+
+    if (userDb.value!.uidsFavs!.contains(movie.id)) {
+      userDb.value!.uidsFavs!.remove(movie.id!);
+    } else {
+      userDb.value!.uidsFavs!.add(movie.id!);
+    }
+    userDb.refresh();
+
+    bool response = await FirestoreDatabaseUsers()
+        .sendFavouriteFilmId(userModel: userDb.value!);
+
     return response;
   }
 }

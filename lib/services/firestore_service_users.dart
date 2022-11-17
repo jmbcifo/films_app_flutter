@@ -11,11 +11,14 @@ class FirestoreDatabaseUsers {
     required String nameUser,
   }) async {
     try {
-      await _firestore.collection(_collection).doc(uidUser).set({
-        "uid": uidUser,
-        "name": nameUser,
-        "isAdmin": false,
-      });
+      await _firestore.collection(_collection).doc(uidUser).set(
+        {
+          "uid": uidUser,
+          "name": nameUser,
+          "isAdmin": false,
+        },
+        SetOptions(merge: true),
+      );
       return true;
     } catch (e) {
       print(e);
@@ -56,6 +59,20 @@ class FirestoreDatabaseUsers {
   Future<bool> deleteUser({required UserModel userModel}) async {
     try {
       await _firestore.collection(_collection).doc(userModel.uid).delete();
+      return true;
+    } catch (e) {
+      print(e);
+      return false;
+    }
+  }
+
+  Future<bool> sendFavouriteFilmId({required UserModel userModel}) async {
+    try {
+      print(userModel.uidsFavs);
+      await _firestore.collection(_collection).doc(userModel.uid).set(
+        {"uidsFavs": userModel.uidsFavs},
+        SetOptions(merge: true),
+      );
       return true;
     } catch (e) {
       print(e);
